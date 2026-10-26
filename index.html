@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Алена ROXISS · врач-косметолог</title>
+<meta name="description" content="Алена ROXISS, врач-косметолог в Екатеринбурге. Запись на консультацию онлайн: процедуру и длительность подбирает врач.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Onest:wght@300;400;500;600&display=swap">
+<style>
+:root{
+  --milk:#f5f0ea; --paper:#fbf8f4; --ink:#241c18; --soft:#6d625b; --line:#e2d8ce;
+  --clay:#b0603f; --clay-d:#8f4a2f; --sage:#8b9a87; --sage-l:#dfe5dc; --night:#1c1714;
+  --serif:"Tenor Sans",Georgia,serif; --sans:"Onest",system-ui,-apple-system,Segoe UI,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--milk);color:var(--ink);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+[hidden]{display:none!important}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:.01em;margin:0;text-wrap:balance}
+.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--clay)}
+.btn{display:inline-flex;align-items:center;gap:10px;border:0;cursor:pointer;font:500 15px var(--sans);padding:15px 26px;border-radius:999px;background:var(--ink);color:var(--paper);text-decoration:none;transition:transform .2s,background .2s}
+.btn:hover{background:var(--clay-d);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+.btn svg{width:18px;height:18px}
+
+/* header */
+header{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,box-shadow .3s;padding-top:env(safe-area-inset-top,0px)}
+header.solid{background:rgba(245,240,234,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:var(--serif);font-size:20px;letter-spacing:.18em;text-decoration:none}
+.logo small{display:block;font:500 10px var(--sans);letter-spacing:.2em;color:var(--soft);margin-top:2px}
+.links{display:flex;gap:28px;font-size:14px}
+.links a{text-decoration:none;opacity:.8}.links a:hover{opacity:1;color:var(--clay)}
+.nav .btn{padding:11px 20px;font-size:14px}
+.burger{display:none;background:none;border:0;width:40px;height:40px;cursor:pointer}
+.burger span{display:block;height:1.5px;background:var(--ink);margin:7px 8px}
+.mnav{position:fixed;inset:0;background:var(--milk);z-index:60;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;font-family:var(--serif);font-size:26px}
+.mnav a{text-decoration:none}
+.mnav .close{position:absolute;top:18px;right:18px;font:300 34px var(--sans);background:none;border:0;cursor:pointer}
+
+/* hero */
+.hero{min-height:100svh;display:grid;align-items:center;padding:110px 0 60px;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(46px,7.4vw,104px);line-height:.98}
+.hero h1 em{font-style:normal;color:var(--clay)}
+.hero p.lead{max-width:470px;color:var(--soft);font-size:18px;margin:26px 0 34px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.facts{display:flex;gap:34px;margin-top:46px;flex-wrap:wrap}
+.facts b{font-family:var(--serif);font-weight:400;font-size:30px;display:block}
+.facts span{font-size:13px;color:var(--soft)}
+.orb{position:relative;aspect-ratio:1;max-width:460px;width:100%;justify-self:center}
+.orb .disc{position:absolute;inset:12%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff 0,#f1e4d8 35%,#d9b8a2 75%,#b98a6e 100%);box-shadow:0 40px 80px -30px rgba(120,70,40,.45),inset -20px -30px 60px rgba(120,60,30,.25)}
+.orb .glow{position:absolute;inset:12%;border-radius:50%;background:radial-gradient(circle at var(--gx,40%) var(--gy,30%),rgba(255,255,255,.85),transparent 40%);mix-blend-mode:soft-light;transition:background .1s}
+.orb svg.ring{position:absolute;inset:0;width:100%;height:100%;animation:spin 40s linear infinite}
+.orb svg.ring text{font:500 12.5px var(--sans);letter-spacing:.32em;fill:var(--ink);text-transform:uppercase}
+.orb .badge{position:absolute;right:2%;bottom:10%;background:var(--paper);border-radius:18px;padding:14px 16px;box-shadow:0 18px 40px -18px rgba(0,0,0,.25);font-size:13px;max-width:200px}
+.orb .badge b{display:block;font-family:var(--serif);font-weight:400;font-size:17px;margin-bottom:2px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* strip */
+.strip{background:var(--ink);color:var(--milk);overflow:hidden;white-space:nowrap;padding:18px 0}
+.strip div{display:inline-block;animation:run 34s linear infinite;font-family:var(--serif);font-size:22px}
+.strip span{margin:0 26px;opacity:.9}.strip i{font-style:normal;color:var(--clay);margin:0 6px}
+@keyframes run{to{transform:translateX(-50%)}}
+
+section.sec{padding:110px 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:54px;flex-wrap:wrap}
+.head h2{font-size:clamp(34px,4.6vw,58px);line-height:1.05;max-width:720px}
+.head p{max-width:400px;color:var(--soft);margin:0}
+
+/* how */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step{background:var(--paper);border-radius:26px;padding:34px 30px;position:relative;border:1px solid var(--line)}
+.step .n{font-family:var(--serif);font-size:56px;color:var(--clay);line-height:1}
+.step h3{font-size:24px;margin:18px 0 10px}
+.step p{margin:0;color:var(--soft)}
+.step.dark{background:var(--ink);color:var(--milk);border-color:var(--ink)}
+.step.dark p{color:#c9bdb3}
+
+/* booking */
+#book{background:var(--paper)}
+.book{display:grid;grid-template-columns:1.25fr .75fr;gap:26px;align-items:start}
+.card{background:var(--milk);border-radius:28px;padding:30px;border:1px solid var(--line)}
+.stepper{display:flex;gap:8px;margin-bottom:24px}
+.stepper span{flex:1;height:3px;border-radius:3px;background:var(--line);transition:background .3s}
+.stepper span.on{background:var(--clay)}
+.card h3{font-size:26px;margin-bottom:6px}
+.card .sub{color:var(--soft);font-size:14px;margin:0 0 22px}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:22px}
+.day{border:1px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 4px;text-align:center;cursor:pointer;font:500 13px var(--sans);transition:.2s}
+.day b{display:block;font:400 22px var(--serif);margin-top:2px}
+.day:hover{border-color:var(--ink)}
+.day.sel{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.day.off{opacity:.35;cursor:not-allowed}
+.slots{display:flex;flex-wrap:wrap;gap:8px;min-height:44px}
+.slot{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:9px 16px;font:500 14px var(--sans);cursor:pointer;transition:.2s}
+.slot:hover{border-color:var(--ink)}
+.slot.sel{background:var(--clay);border-color:var(--clay);color:#fff}
+.slot.busy{text-decoration:line-through;opacity:.35;cursor:not-allowed}
+.reasons{display:grid;gap:10px}
+.reason{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);background:var(--paper);border-radius:18px;padding:16px 18px;cursor:pointer;transition:.2s;text-align:left;font:inherit;color:inherit}
+.reason:hover{border-color:var(--ink)}
+.reason.sel{border-color:var(--clay);box-shadow:inset 0 0 0 1px var(--clay)}
+.reason i{flex:none;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--soft);margin-top:3px;position:relative}
+.reason.sel i{border-color:var(--clay)}
+.reason.sel i:after{content:"";position:absolute;inset:4px;border-radius:50%;background:var(--clay)}
+.reason b{display:block;font-weight:500}
+.reason small{color:var(--soft)}
+.field{display:grid;gap:6px;margin-bottom:14px}
+.field label{font-size:13px;color:var(--soft)}
+.field input,.field textarea{font:inherit;border:1px solid var(--line);background:var(--paper);border-radius:14px;padding:13px 16px;outline:none;transition:border .2s}
+.field input:focus,.field textarea:focus{border-color:var(--ink)}
+.field.err input{border-color:#c0392b}
+.row{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:24px;flex-wrap:wrap}
+.back{background:none;border:0;font:500 14px var(--sans);color:var(--soft);cursor:pointer}
+.summary{background:var(--paper);border-radius:18px;padding:16px 18px;font-size:14px;margin-bottom:18px;border:1px dashed var(--line)}
+.summary b{font-weight:500}
+.done{text-align:center;padding:20px 0}
+.done .check{width:64px;height:64px;border-radius:50%;background:var(--sage-l);display:grid;place-items:center;margin:0 auto 18px}
+.done .check svg{width:30px;height:30px;stroke:#4f6b4b}
+.pane{animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* phone */
+.phone{background:var(--night);border-radius:40px;padding:14px;box-shadow:0 40px 80px -40px rgba(0,0,0,.55);max-width:330px;margin:0 auto;position:sticky;top:100px}
+.screen{background:#0e1621;border-radius:28px;min-height:520px;padding:18px 14px;color:#e8edf2;font-size:13.5px;display:flex;flex-direction:column;gap:10px}
+.tgtop{display:flex;align-items:center;gap:10px;padding-bottom:12px;border-bottom:1px solid #1f2b38;margin-bottom:6px}
+.tgtop .av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--clay),#d99a7a);display:grid;place-items:center;font-family:var(--serif);color:#fff}
+.tgtop b{font-weight:500;display:block}
+.tgtop small{color:#7f91a4}
+.bub{background:#182533;border-radius:16px 16px 16px 4px;padding:10px 12px;max-width:92%;line-height:1.45;animation:pop .4s ease}
+.bub time{display:block;text-align:right;font-size:11px;color:#6d8296;margin-top:4px}
+.bub.me{align-self:flex-end;background:#2b5278;border-radius:16px 16px 4px 16px}
+.typing{color:#7f91a4;font-size:12px}
+@keyframes pop{from{opacity:0;transform:translateY(6px) scale(.98)}to{opacity:1;transform:none}}
+.ph-note{text-align:center;color:var(--soft);font-size:13px;margin-top:14px}
+
+/* doctor */
+#doctor{background:var(--ink);color:var(--milk)}
+#doctor .head p{color:#c9bdb3}
+.doc{display:grid;grid-template-columns:.9fr 1.1fr;gap:26px}
+.dpanel{background:#2b221d;border-radius:28px;padding:28px;border:1px solid #3a2f28}
+.dpanel h3{font-size:22px;margin-bottom:6px}
+.dpanel .sub{color:#b9aca2;font-size:14px;margin:0 0 18px}
+.client{display:flex;justify-content:space-between;gap:10px;align-items:center;background:#342a24;border-radius:16px;padding:14px 16px;margin-bottom:10px;cursor:pointer;border:1px solid transparent;transition:.2s}
+.client:hover{border-color:#5a4a40}
+.client.sel{border-color:var(--clay)}
+.client b{font-weight:500}
+.client small{color:#b9aca2;display:block}
+.tag{font-size:12px;padding:4px 10px;border-radius:999px;background:#463a32;color:#e6d9cf;white-space:nowrap}
+.tag.ok{background:#3c4a39;color:#cfe0c9}
+.procs{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.proc{border:1px solid #4b3e35;background:transparent;color:var(--milk);border-radius:999px;padding:8px 14px;font:500 13px var(--sans);cursor:pointer;transition:.2s}
+.proc:hover{border-color:var(--milk)}
+.proc.sel{background:var(--clay);border-color:var(--clay)}
+.dur{display:flex;align-items:center;gap:12px;margin:8px 0 18px}
+.dur button{width:36px;height:36px;border-radius:50%;border:1px solid #4b3e35;background:transparent;color:var(--milk);font-size:18px;cursor:pointer}
+.dur b{font:400 26px var(--serif);min-width:110px;text-align:center}
+.tl{position:relative;border-left:1px solid #4b3e35;margin-left:46px}
+.tl .h{position:relative;height:44px}
+.tl .h span{position:absolute;left:-52px;top:-9px;font-size:12px;color:#9c8e84}
+.tl .h:before{content:"";position:absolute;left:0;right:0;top:0;border-top:1px dashed #3a2f28}
+.blk{position:absolute;left:10px;right:6px;border-radius:12px;padding:6px 10px;font-size:12.5px;overflow:hidden;transition:all .4s ease}
+.blk.c{background:#463a32}
+.blk.p{background:var(--clay);color:#fff}
+.blk.new{animation:pop .4s ease}
+.blk b{font-weight:500;display:block}
+.dbtn{margin-top:6px;background:var(--milk);color:var(--ink)}
+.dbtn:hover{background:#fff;color:var(--ink)}
+.dbtn[disabled]{opacity:.4;cursor:not-allowed;transform:none}
+.dmsg{margin-top:14px;background:#182533;color:#e8edf2;border-radius:14px;padding:12px 14px;font-size:13px;line-height:1.5}
+.dmsg small{color:#7f91a4;display:block;margin-bottom:4px}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.s{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:10px;transition:transform .25s,box-shadow .25s}
+.s:hover{transform:translateY(-3px);box-shadow:0 24px 40px -28px rgba(80,40,20,.35)}
+.s h3{font-size:22px}
+.s p{color:var(--soft);margin:0;font-size:15px;flex:1}
+.s .pr{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);padding-top:14px;margin-top:6px}
+.s .pr b{font:400 22px var(--serif)}
+.s .pr span{font-size:13px;color:var(--soft)}
+.s.wow{background:var(--clay);color:#fff;border-color:var(--clay)}
+.s.wow p,.s.wow .pr span{color:#f6dcd0}
+.s.wow .pr{border-color:rgba(255,255,255,.3)}
+.note{color:var(--soft);font-size:13px;margin-top:22px}
+
+/* about */
+.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+.portrait{aspect-ratio:4/5;border-radius:30px;background:linear-gradient(160deg,#e7d6c8,#c9a48c);position:relative;overflow:hidden;max-width:100%}
+.portrait:after{content:"ROXISS";display:none;position:absolute;bottom:22px;left:24px;font:400 46px var(--serif);letter-spacing:.2em;color:rgba(255,255,255,.75)}
+.portrait .ph{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:18px;color:rgba(255,255,255,.92)}
+.portrait .mono{font:400 clamp(90px,12vw,150px)/1 var(--serif);letter-spacing:.06em}
+.portrait .cap{font-size:12px;letter-spacing:.3em;text-transform:uppercase;text-align:center;line-height:1.9;opacity:.85}
+.portrait:before{content:"";position:absolute;inset:18px;border:1px solid rgba(255,255,255,.45);border-radius:22px}
+.about blockquote{font-family:var(--serif);font-size:clamp(24px,2.6vw,32px);line-height:1.35;margin:18px 0 26px}
+.about ul{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.about li{display:flex;gap:14px;align-items:flex-start}
+.about li i{flex:none;width:26px;height:26px;border-radius:50%;background:var(--sage-l);display:grid;place-items:center;margin-top:1px}
+.about li i svg{width:13px;height:13px;stroke:#4f6b4b}
+
+/* faq */
+.faq{max-width:820px}
+details{border-bottom:1px solid var(--line);padding:22px 0}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;font-family:var(--serif);font-size:21px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";font:300 26px var(--sans);transition:transform .3s;color:var(--clay)}
+details[open] summary:after{transform:rotate(45deg)}
+details p{color:var(--soft);margin:14px 0 0;max-width:680px}
+
+/* contacts */
+.contacts{background:var(--night);color:var(--milk);padding:100px 0 40px}
+.contacts .grid{display:grid;grid-template-columns:1.2fr 1fr;gap:50px}
+.contacts h2{font-size:clamp(36px,5vw,64px);line-height:1.02}
+.contacts p{color:#c9bdb3}
+.clist{display:grid;gap:14px}
+.ci{display:flex;gap:16px;align-items:center;background:#2a221d;border-radius:20px;padding:18px 20px;text-decoration:none;transition:background .2s}
+.ci:hover{background:#352a24}
+.ci svg{width:22px;height:22px;flex:none;stroke:var(--clay);fill:none;stroke-width:1.6}
+.ci small{display:block;color:#a99a8f;font-size:12px}
+footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid #3a2f28;margin-top:70px;padding-top:24px;font-size:13px;color:#9c8e84}
+footer a{color:#e6d9cf}
+
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);opacity:0;background:var(--ink);color:var(--paper);padding:13px 22px;border-radius:999px;font-size:14px;z-index:80;transition:.35s;pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:980px){
+  .links,.nav .btn{display:none}.burger{display:block}
+  .hero .wrap,.book,.doc,.about,.contacts .grid{grid-template-columns:1fr}
+  .orb{max-width:340px}
+  .steps,.svc{grid-template-columns:1fr 1fr}
+  .phone{position:static}
+}
+@media (max-width:640px){
+  section.sec{padding:76px 0}
+  .steps,.svc{grid-template-columns:1fr}
+  .days{grid-template-columns:repeat(4,1fr)}
+  .card,.dpanel{padding:22px 18px}
+  .facts{gap:22px}
+  .orb .badge{right:0;bottom:4%}
+  .portrait{aspect-ratio:4/3}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-tg" viewBox="0 0 24 24"><path d="M21 4L3 11l6 2 2 6 3-4 5 4 2-15z M9 13l9-7"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17" cy="7" r=".6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+</svg>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="logo" href="#top">ROXISS<small>ВРАЧ-КОСМЕТОЛОГ · ЕКБ</small></a>
+    <nav class="links">
+      <a href="#how">Как записаться</a><a href="#services">Процедуры</a><a href="#about">Обо мне</a><a href="#faq">Вопросы</a><a href="#contacts">Контакты</a>
+    </nav>
+    <a class="btn" href="#book">Записаться</a>
+    <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mnav" id="mnav" hidden>
+  <button class="close" id="mclose" aria-label="Закрыть">×</button>
+  <a href="#how">Как записаться</a><a href="#book">Запись</a><a href="#services">Процедуры</a><a href="#about">Обо мне</a><a href="#faq">Вопросы</a><a href="#contacts">Контакты</a>
+</div>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Алена ROXISS · Екатеринбург</div>
+      <h1 style="margin-top:18px">Кожа, которую <em>подбирают</em>, а&nbsp;не&nbsp;угадывают</h1>
+      <p class="lead">Врач-косметолог с высшим медицинским образованием. Сначала консультация и разбор кожи, потом процедура, которая нужна именно вам.</p>
+      <div class="cta">
+        <a class="btn" href="#book">Записаться на консультацию <svg><use href="#i-arrow"/></svg></a>
+        <a class="btn ghost" href="#services">Процедуры и цены</a>
+      </div>
+      <div class="facts">
+        <div><b>Мед.</b><span>высшее образование</span></div>
+        <div><b>1 500+</b><span>подписчиков в Instagram</span></div>
+        <div><b>WOW</b><span>фирменный комплекс</span></div>
+      </div>
+    </div>
+    <div class="orb" id="orb">
+      <div class="disc"></div><div class="glow"></div>
+      <svg class="ring" viewBox="0 0 400 400"><defs><path id="circ" d="M200,200 m-182,0 a182,182 0 1,1 364,0 a182,182 0 1,1 -364,0"/></defs>
+        <text><textPath href="#circ" textLength="1140" lengthAdjust="spacing">массаж · пилинг · чистка · мезо · био · ботокс · WOW-комплекс · массаж · пилинг · чистка · мезо · </textPath></text></svg>
+      <div class="badge"><b>Белинского, 30</b>приём по записи, процедуру подбираем на консультации</div>
+    </div>
+  </div>
+</section>
+
+<div class="strip"><div>
+  <span>Массаж лица</span><i>/</i><span>Пилинги</span><i>/</i><span>Чистка</span><i>/</i><span>Мезотерапия</span><i>/</i><span>Биоревитализация</span><i>/</i><span>Ботокс</span><i>/</i><span>WOW-комплекс</span><i>/</i>
+  <span>Массаж лица</span><i>/</i><span>Пилинги</span><i>/</i><span>Чистка</span><i>/</i><span>Мезотерапия</span><i>/</i><span>Биоревитализация</span><i>/</i><span>Ботокс</span><i>/</i><span>WOW-комплекс</span><i>/</i>
+</div></div>
+
+<section class="sec" id="how">
+  <div class="wrap">
+    <div class="head reveal">
+      <h2>Вы выбираете только время. Остальное решаем на&nbsp;приёме</h2>
+      <p>Процедуры у меня разной длительности и подбираются индивидуально, поэтому записываетесь вы на консультацию, а не на услугу из списка.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n">01</div><h3>Свободное окно</h3><p>Выбираете удобный день и время консультации прямо на сайте, без переписки «а когда у вас есть место».</p></div>
+      <div class="step reveal"><div class="n">02</div><h3>Разбор кожи</h3><p>На консультации смотрим кожу и задачу, я подбираю процедуру или курс и сама ставлю нужную длительность.</p></div>
+      <div class="step dark reveal"><div class="n">03</div><h3>Напоминание</h3><p>Время процедуры и напоминание за день приходят вам в Telegram автоматически. Перенести можно в пару кликов.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="book">
+  <div class="wrap">
+    <div class="head reveal">
+      <h2>Запись на консультацию</h2>
+      <p>Займёт меньше минуты. После записи вам придёт подтверждение, а за день до визита напоминание.</p>
+    </div>
+    <div class="book">
+      <div class="card" id="bk">
+        <div class="stepper"><span class="on"></span><span></span><span></span></div>
+
+        <div class="pane" data-p="1">
+          <h3>Когда вам удобно?</h3>
+          <p class="sub">Консультация 30 минут · Белинского, 30</p>
+          <div class="days" id="days"></div>
+          <div class="slots" id="slots"></div>
+          <div class="row"><span class="sub" id="pick1" style="margin:0">Выберите день и время</span><button class="btn" id="n1" disabled>Дальше</button></div>
+        </div>
+
+        <div class="pane" data-p="2" hidden>
+          <h3>С чем хотите прийти?</h3>
+          <p class="sub">Это не выбор процедуры, а подсказка мне перед встречей</p>
+          <div class="reasons" id="reasons">
+            <button class="reason" data-v="Беспокоит кожа: высыпания, пигмент, расширенные поры"><i></i><span><b>Беспокоит кожа</b><small>высыпания, пигмент, поры, тусклый цвет</small></span></button>
+            <button class="reason" data-v="Хочу освежить лицо и омолодиться"><i></i><span><b>Хочу освежить лицо</b><small>морщины, тонус, усталый вид</small></span></button>
+            <button class="reason" data-v="Хочу уход и поддержку кожи"><i></i><span><b>Регулярный уход</b><small>чистка, массаж, поддерживающие процедуры</small></span></button>
+            <button class="reason" data-v="Не знаю, нужна подсказка"><i></i><span><b>Не знаю, подскажите</b><small>разберёмся вместе на консультации</small></span></button>
+          </div>
+          <div class="row"><button class="back" data-back>← Назад</button><button class="btn" id="n2" disabled>Дальше</button></div>
+        </div>
+
+        <div class="pane" data-p="3" hidden>
+          <h3>Куда прислать подтверждение?</h3>
+          <div class="summary" id="sum"></div>
+          <form id="form" novalidate>
+            <div class="field" id="fName"><label>Как к вам обращаться</label><input id="iName" autocomplete="name" placeholder="Имя"></div>
+            <div class="field" id="fTg"><label>Telegram или телефон</label><input id="iTg" placeholder="@username или +7…"></div>
+            <div class="field"><label>Комментарий, если хотите</label><textarea id="iCom" rows="2" placeholder="Например, была процедура месяц назад"></textarea></div>
+            <div class="row"><button type="button" class="back" data-back>← Назад</button><button class="btn" type="submit">Записаться</button></div>
+          </form>
+        </div>
+
+        <div class="pane done" data-p="4" hidden>
+          <div class="check"><svg><use href="#i-check"/></svg></div>
+          <h3 id="doneT">Вы записаны</h3>
+          <p class="sub" id="doneS" style="margin-top:8px"></p>
+          <button class="btn ghost" id="again">Записаться ещё раз</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="phone"><div class="screen" id="screen">
+          <div class="tgtop"><div class="av">R</div><div><b>ROXISS · запись</b><small>бот записи</small></div></div>
+          <div class="bub">Здравствуйте! Здесь будут приходить подтверждение записи и напоминание о визите.<time>сейчас</time></div>
+        </div></div>
+        <p class="ph-note">Так клиентке приходят сообщения. Вам не нужно писать каждой вручную.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="doctor">
+  <div class="wrap">
+    <div class="head reveal">
+      <h2>А так это выглядит у&nbsp;вас</h2>
+      <p>После консультации вы сами выбираете процедуру и ставите длительность. Время в расписании блокируется, клиентке уходит сообщение.</p>
+    </div>
+    <div class="doc">
+      <div class="dpanel">
+        <h3>Консультации на сегодня</h3>
+        <p class="sub">Нажмите на клиентку и назначьте процедуру</p>
+        <div id="clients"></div>
+        <div id="assign" hidden>
+          <div class="sub" style="margin:14px 0 0">Процедура</div>
+          <div class="procs" id="procs"></div>
+          <div class="sub" style="margin:0">Длительность</div>
+          <div class="dur"><button id="dm" aria-label="Меньше">−</button><b id="dv">60 мин</b><button id="dp" aria-label="Больше">+</button></div>
+          <div class="sub" style="margin:0 0 8px">Когда</div>
+          <div class="procs" id="when"></div>
+          <button class="btn dbtn" id="dgo" disabled>Назначить и отправить клиентке</button>
+          <div class="dmsg" id="dmsg" hidden></div>
+        </div>
+      </div>
+      <div class="dpanel">
+        <h3 id="tlTitle">Расписание</h3>
+        <p class="sub">Белинского, 30</p>
+        <div class="tl" id="tl"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="head reveal">
+      <h2>Процедуры</h2>
+      <p>Точный план и стоимость обсуждаем на консультации: всё зависит от кожи и задачи.</p>
+    </div>
+    <div class="svc">
+      <div class="s wow reveal"><h3>WOW-комплекс</h3><p>Фирменная программа: очищение, пилинг, массаж и уход за один визит. Лицо отдохнувшее уже после процедуры.</p><div class="pr"><b>от 7 900 ₽</b><span>~ 2 часа</span></div></div>
+      <div class="s reveal"><h3>Массаж лица</h3><p>Снимает отёки и напряжение, возвращает чёткий овал и здоровый цвет.</p><div class="pr"><b>от 2 500 ₽</b><span>45–60 мин</span></div></div>
+      <div class="s reveal"><h3>Пилинги</h3><p>Подбираю состав под тип кожи: от мягкого обновления до работы с пигментом и постакне.</p><div class="pr"><b>от 2 500 ₽</b><span>30–45 мин</span></div></div>
+      <div class="s reveal"><h3>Чистка лица</h3><p>Комбинированная чистка с бережным выходом и успокаивающим уходом.</p><div class="pr"><b>от 3 500 ₽</b><span>60–90 мин</span></div></div>
+      <div class="s reveal"><h3>Мезотерапия и биоревитализация</h3><p>Увлажнение и качество кожи изнутри, курсами по индивидуальному плану.</p><div class="pr"><b>от 4 500 ₽</b><span>40–60 мин</span></div></div>
+      <div class="s reveal"><h3>Ботулинотерапия</h3><p>Мимические морщины без эффекта «маски», с контрольным визитом через две недели.</p><div class="pr"><b>от 350 ₽</b><span>за единицу</span></div></div>
+    </div>
+    <p class="note">Цены на сайте ориентировочные. Консультация засчитывается в стоимость процедуры, если вы проходите её в тот же день.</p>
+  </div>
+</section>
+
+<section class="sec" id="about">
+  <div class="wrap about">
+    <div class="portrait reveal"><div class="ph"><span class="mono">A·R</span><span class="cap">врач-косметолог<br>Екатеринбург</span></div></div>
+    <div class="reveal">
+      <div class="eyebrow">Обо мне</div>
+      <blockquote>«Я не продаю процедуры по списку. Сначала разбираемся с кожей, потом делаем то, что действительно нужно».</blockquote>
+      <ul>
+        <li><i><svg><use href="#i-check"/></svg></i><span>Врач-косметолог с высшим медицинским образованием</span></li>
+        <li><i><svg><use href="#i-check"/></svg></i><span>Работаю с кожей комплексно: массаж, пилинги, чистки, мезо, био, ботокс</span></li>
+        <li><i><svg><use href="#i-check"/></svg></i><span>Был свой маникюрный бизнес, поэтому ценю ваше время: без опозданий и долгой переписки</span></li>
+        <li><i><svg><use href="#i-check"/></svg></i><span>Приём в Екатеринбурге, Белинского, 30</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq">
+  <div class="wrap faq">
+    <div class="head reveal"><h2>Частые вопросы</h2></div>
+    <details><summary>Почему нельзя сразу записаться на процедуру?</summary><p>Процедуры разные по длительности, и одной и той же задаче подходят разные решения. Поэтому сначала короткая консультация, а процедуру и время я подбираю сама. Так вы не потратите деньги на то, что вам не нужно.</p></details>
+    <details><summary>Сколько длится консультация?</summary><p>Около 30 минут. Смотрим кожу, обсуждаем задачу и составляем план. Если всё понятно и есть время, процедуру можно сделать в тот же день.</p></details>
+    <details><summary>Как перенести запись?</summary><p>В сообщении с напоминанием есть кнопка переноса: выбираете другое свободное время, и запись меняется сама.</p></details>
+    <details><summary>Есть ли противопоказания?</summary><p>Да, у части процедур есть: беременность, острые воспаления, некоторые заболевания. Обязательно расскажите о них на консультации, я подберу безопасный вариант.</p></details>
+    <details><summary>Где вы принимаете?</summary><p>Екатеринбург, улица Белинского, 30. Точный ориентир придёт в сообщении с подтверждением записи.</p></details>
+  </div>
+</section>
+
+<section class="contacts" id="contacts">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="eyebrow">Контакты</div>
+        <h2 style="margin-top:16px">Приходите знакомиться с&nbsp;вашей кожей</h2>
+        <p style="max-width:440px;margin-top:20px">Запись онлайн на сайте или напишите мне в Telegram, отвечаю в течение дня.</p>
+        <a class="btn" href="#book" style="margin-top:14px;background:var(--clay)">Записаться на консультацию</a>
+      </div>
+      <div class="clist">
+        <a class="ci" href="https://t.me/roxiss_aloniya" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg><span><small>Telegram</small>@roxiss_aloniya</span></a>
+        <a class="ci" href="https://instagram.com/dr.roxiss" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg><span><small>Instagram</small>@dr.roxiss</span></a>
+        <div class="ci"><svg><use href="#i-pin"/></svg><span><small>Адрес</small>Екатеринбург, Белинского, 30</span></div>
+        <div class="ci"><svg><use href="#i-clock"/></svg><span><small>Приём</small>по предварительной записи</span></div>
+      </div>
+    </div>
+    <footer><span>© 2026 Алена ROXISS, врач-косметолог</span><span>Сайт создан <a href="https://whysafe.ru" target="_blank" rel="noopener">whysafe.ru</a></span></footer>
+  </div>
+</section>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const toast=t=>{const e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('on'),2600)};
+
+/* header + menu */
+const hdr=$('#hdr');addEventListener('scroll',()=>hdr.classList.toggle('solid',scrollY>30),{passive:true});
+$('#burger').onclick=()=>$('#mnav').hidden=false;$('#mclose').onclick=()=>$('#mnav').hidden=true;
+$$('#mnav a').forEach(a=>a.onclick=()=>$('#mnav').hidden=true);
+
+/* orb highlight */
+const orb=$('#orb');orb.addEventListener('pointermove',e=>{const r=orb.getBoundingClientRect();orb.style.setProperty('--gx',((e.clientX-r.left)/r.width*100)+'%');orb.style.setProperty('--gy',((e.clientY-r.top)/r.height*100)+'%')});
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+$$('.reveal').forEach(el=>io.observe(el));
+
+/* booking */
+const WD=['вс','пн','вт','ср','чт','пт','сб'], MON=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+const ALL=['10:00','10:30','11:30','12:00','13:30','14:00','15:30','16:00','17:30','18:00'];
+const st={day:null,slot:null,reason:null,name:'',tg:''};
+const today=new Date();today.setHours(0,0,0,0);
+const days=[];for(let i=1;days.length<14;i++){const d=new Date(today);d.setDate(today.getDate()+i);days.push(d)}
+const seed=n=>{let x=Math.sin(n)*10000;return x-Math.floor(x)};
+const busyFor=d=>ALL.filter((s,i)=>seed(d.getDate()*31+i*7)<.38);
+const fmt=d=>d.getDate()+' '+MON[d.getMonth()]+', '+WD[d.getDay()];
+function renderDays(){
+  $('#days').innerHTML=days.slice(0,7*(innerWidth<640?2:2)).map((d,i)=>{const off=d.getDay()===0;return `<button class="day${off?' off':''}${st.day===i?' sel':''}" data-i="${i}" ${off?'disabled':''}>${WD[d.getDay()]}<b>${d.getDate()}</b></button>`}).join('');
+  $$('.day').forEach(b=>b.onclick=()=>{st.day=+b.dataset.i;st.slot=null;renderDays();renderSlots();upd1()});
+}
+function renderSlots(){
+  if(st.day===null){$('#slots').innerHTML='<span class="sub" style="margin:0">Сначала выберите день</span>';return}
+  const busy=busyFor(days[st.day]);
+  $('#slots').innerHTML=ALL.map(s=>`<button class="slot${busy.includes(s)?' busy':''}${st.slot===s?' sel':''}" ${busy.includes(s)?'disabled':''}>${s}</button>`).join('');
+  $$('.slot:not(.busy)').forEach(b=>b.onclick=()=>{st.slot=b.textContent;renderSlots();upd1()});
+}
+function upd1(){const ok=st.day!==null&&st.slot;$('#n1').disabled=!ok;$('#pick1').textContent=ok?fmt(days[st.day])+' в '+st.slot:'Выберите день и время'}
+function go(p){$$('#bk .pane').forEach(e=>e.hidden=+e.dataset.p!==p);$$('.stepper span').forEach((s,i)=>s.classList.toggle('on',i<Math.min(p,3)))}
+$('#n1').onclick=()=>go(2);
+$$('.reason').forEach(b=>b.onclick=()=>{$$('.reason').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');st.reason=b.dataset.v;$('#n2').disabled=false});
+$('#n2').onclick=()=>{$('#sum').innerHTML=`<b>${fmt(days[st.day])}, ${st.slot}</b> · консультация 30 мин<br>${st.reason}`;go(3)};
+$$('[data-back]').forEach(b=>b.onclick=()=>{const p=+b.closest('.pane').dataset.p;go(p-1)});
+$('#form').onsubmit=e=>{
+  e.preventDefault();
+  const n=$('#iName').value.trim(), t=$('#iTg').value.trim();
+  $('#fName').classList.toggle('err',!n);$('#fTg').classList.toggle('err',t.length<5);
+  if(!n||t.length<5){toast('Заполните имя и контакт');return}
+  st.name=n;st.tg=t;
+  $('#doneT').textContent=n+', вы записаны';
+  $('#doneS').textContent=fmt(days[st.day])+' в '+st.slot+'. Подтверждение уже в Telegram, напоминание придёт за день.';
+  go(4);toast('Запись подтверждена');phoneFlow();
+};
+$('#again').onclick=()=>{st.day=null;st.slot=null;st.reason=null;$$('.reason').forEach(x=>x.classList.remove('sel'));$('#n2').disabled=true;$('#form').reset();renderDays();renderSlots();upd1();go(1)};
+
+const scr=$('#screen');
+function bub(html,me,delay){return new Promise(r=>setTimeout(()=>{const ty=document.createElement('div');ty.className='typing';ty.textContent='ROXISS печатает…';if(!me)scr.appendChild(ty);setTimeout(()=>{ty.remove();const b=document.createElement('div');b.className='bub'+(me?' me':'');b.innerHTML=html;scr.appendChild(b);scr.scrollTop=scr.scrollHeight;r()},me?0:700)},delay))}
+async function phoneFlow(){
+  [...scr.querySelectorAll('.bub,.typing')].forEach(e=>e.remove());
+  const d=days[st.day], prev=new Date(d);prev.setDate(d.getDate()-1);
+  await bub(`${st.name}, вы записаны на консультацию<br><b>${fmt(d)}, ${st.slot}</b><br>Белинского, 30<time>сейчас</time>`,0,200);
+  await bub(`После консультации здесь появится время процедуры, которую подберёт Алена.<time>сейчас</time>`,0,500);
+  await bub(`Напоминание: завтра в ${st.slot} консультация у Алены ROXISS. Если планы изменились, нажмите «Перенести».<time>${prev.getDate()} ${MON[prev.getMonth()]}, 12:00</time>`,0,900);
+  await bub('Буду, спасибо!',1,900);
+}
+
+/* doctor demo */
+const CL=[{n:'Мария',t:'10:00',r:'Беспокоит кожа: пигмент'},{n:'Ольга',t:'12:00',r:'Хочу освежить лицо'},{n:'Екатерина',t:'14:00',r:'Не знаю, нужна подсказка'}];
+const PR=[{n:'WOW-комплекс',d:120},{n:'Пилинг',d:45},{n:'Чистка',d:90},{n:'Массаж лица',d:60},{n:'Биоревитализация',d:45},{n:'Ботокс',d:30}];
+const ds={c:null,p:null,d:60,w:null,done:{}};
+const START=10,END=19;
+const WHEN=[{l:'Сразу после консультации',o:0},{l:'Завтра, 11:00',o:1},{l:'Пятница, 15:00',o:2}];
+function renderClients(){
+  $('#clients').innerHTML=CL.map((c,i)=>`<div class="client${ds.c===i?' sel':''}" data-i="${i}"><div><b>${c.t} · ${c.n}</b><small>${c.r}</small></div><span class="tag${ds.done[i]?' ok':''}">${ds.done[i]?ds.done[i].p:'консультация'}</span></div>`).join('');
+  $$('.client').forEach(e=>e.onclick=()=>{ds.c=+e.dataset.i;ds.p=null;ds.w=null;$('#assign').hidden=false;$('#dmsg').hidden=true;renderClients();renderProcs();updGo()});
+}
+function renderProcs(){
+  $('#procs').innerHTML=PR.map((p,i)=>`<button class="proc${ds.p===i?' sel':''}" data-i="${i}">${p.n}</button>`).join('');
+  $$('#procs .proc').forEach(b=>b.onclick=()=>{ds.p=+b.dataset.i;ds.d=PR[ds.p].d;$('#dv').textContent=ds.d+' мин';renderProcs();updGo()});
+  $('#when').innerHTML=WHEN.map((w,i)=>`<button class="proc${ds.w===i?' sel':''}" data-i="${i}">${w.l}</button>`).join('');
+  $$('#when .proc').forEach(b=>b.onclick=()=>{ds.w=+b.dataset.i;renderProcs();updGo()});
+}
+function updGo(){$('#dgo').disabled=!(ds.c!==null&&ds.p!==null&&ds.w!==null)}
+$('#dm').onclick=()=>{ds.d=Math.max(15,ds.d-15);$('#dv').textContent=ds.d+' мин'};
+$('#dp').onclick=()=>{ds.d=Math.min(180,ds.d+15);$('#dv').textContent=ds.d+' мин'};
+const toMin=t=>{const[h,m]=t.split(':').map(Number);return h*60+m};
+const toT=m=>String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0');
+function renderTL(newKey){
+  const tl=$('#tl');let h='';for(let i=START;i<=END;i++)h+=`<div class="h"><span>${String(i).padStart(2,'0')}:00</span></div>`;tl.innerHTML=h;
+  const px=44/60;
+  CL.forEach((c,i)=>{const s=toMin(c.t)-START*60;tl.insertAdjacentHTML('beforeend',`<div class="blk c" style="top:${s*px}px;height:${30*px}px"><b>${c.t} консультация · ${c.n}</b></div>`);
+    const d=ds.done[i];if(d&&d.o===0){const ps=s+30;tl.insertAdjacentHTML('beforeend',`<div class="blk p${newKey===i?' new':''}" style="top:${ps*px}px;height:${d.d*px}px"><b>${d.p} · ${c.n}</b>${toT(ps+START*60)}–${toT(ps+START*60+d.d)}</div>`)}});
+}
+$('#dgo').onclick=()=>{
+  const c=CL[ds.c],p=PR[ds.p],w=WHEN[ds.w];
+  if(w.o===0){
+    const s=toMin(c.t)+30,e=s+ds.d;
+    const hit=CL.find((x,i)=>i!==ds.c&&toMin(x.t)<e&&toMin(x.t)+30>s)||CL.map((x,i)=>ds.done[i]&&ds.done[i].o===0&&i!==ds.c?{t:toT(toMin(x.t)+30),e:toMin(x.t)+30+ds.done[i].d}:null).find(b=>b&&toMin(b.t)<e&&b.e>s);
+    if(hit){$('#dmsg').hidden=false;$('#dmsg').innerHTML=`<small>Время занято</small>Процедура на ${ds.d} минут пересекается с записью в ${hit.t}. Выберите другое время, и клиентке уйдёт уже свободный слот.`;toast('Пересечение в расписании');return}
+  }
+  ds.done[ds.c]={p:p.n,d:ds.d,o:w.o};
+  const when=w.o===0?'сегодня в '+toT(toMin(c.t)+30):w.l.toLowerCase();
+  $('#dmsg').hidden=false;$('#dmsg').innerHTML=`<small>Ушло клиентке в Telegram</small>${c.n}, по итогам консультации Алена назначила: <b>${p.n}</b>, ${ds.d} минут, ${when}. ${w.o===0?'Ждём вас сразу после консультации.':'Напомним за день.'}`;
+  renderClients();renderTL(ds.c);toast('Время заблокировано, клиентке ушло сообщение');
+};
+
+renderDays();renderSlots();upd1();renderClients();renderTL();
+</script>
+</body>
+</html>
